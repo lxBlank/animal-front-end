@@ -18,7 +18,7 @@
         <text class="f28r ml8r cgray">{{ infoData.TopCount || '赞'}}</text>
       </view>
     </view>
-    <!-- 评论及回复 -->
+    <!-- 评论及回复功能 -->
     <view class="comment">
       <view class="comment-content" :class="{bbs2r: infoData.ChildCount}" @tap="$emit('comm',infoData)">{{infoData.Content || '#'}}</view>
       <block v-if="infoData.ChildCount" v-for="(item,index) in infoData.CommentChilds" :key="index">
