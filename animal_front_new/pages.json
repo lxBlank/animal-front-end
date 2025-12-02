@@ -1,0 +1,170 @@
+{
+    // 如果您是通过uni_modules形式引入uView，可以忽略此配置
+    "easycom" : {
+        "^u-(.*)" : "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+    },
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        // 登录界面
+        {
+            "path" : "pages/login/login",
+            "style" : {
+                "navigationBarTitleText" : "登录"
+            }
+        },
+        // 主面主
+        {
+            "path" : "pages/main/main",
+            "style" : {
+                "navigationBarTitleText" : "宠爱"
+				
+            }
+        },
+        {
+            "path" : "pages/home/home",
+            "style" : {
+                "navigationBarTitleText" : "首页"
+                
+            }
+        },
+        {
+            "path" : "pages/home/activity_detail",
+            "style" : {
+                "navigationBarTitleText" : "动态详情"
+               
+            }
+        },
+        {
+            "path" : "pages/map/map",
+            "style" : {
+                "navigationBarTitleText" : "地图"
+                
+            }
+        },
+        {
+            "path" : "pages/message/message",
+            "style" : {
+                "navigationBarTitleText" : "消息"
+           
+            }
+        },
+        {
+            "path" : "pages/center/center",
+            "style" : {
+                "navigationBarTitleText" : "个人中心"
+              
+            }
+        },
+        {
+            "path" : "pages/center_sub/center_info",
+            "style" : {
+                "navigationBarTitleText" : "个人信息"
+        
+            }
+        },
+
+		{
+		    "path" : "pages/center_sub/center_activity1",
+		    "style" : {
+		        "navigationBarTitleText" : "发起的活动"
+		
+		    }
+		},
+		{
+		    "path" : "pages/center_sub/center_activity2",
+		    "style" : {
+		        "navigationBarTitleText" : "参加的活动"
+		
+		    }
+		},
+		{
+		    "path" : "pages/center_sub/center_dynamic",
+		    "style" : {
+		        "navigationBarTitleText" : "历史动态"
+		
+		    }
+		},
+		{
+		    "path" : "pages/center_sub/center_achievement",
+		    "style" : {
+		        "navigationBarTitleText" : "点滴成就"
+		
+		    }
+		},
+        {
+            "path" : "App",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/map2/map2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": ""
+    
+            }
+            
+        }
+        ,{
+            "path" : "pages/activity/activity",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动"
+                // "enablePullDownRefresh": true
+            }
+            
+        },
+		{
+		    "path" : "pages/activity/activity_detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "活动详情"
+		        // "enablePullDownRefresh": true
+		    }
+		    
+		},
+    	{
+            "path" : "pages/animal/animal",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "动物",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/help/help",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "创建救助日志",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/help/help_detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "救助日志",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+    ],
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText": "宠爱",
+        "navigationBarBackgroundColor" : "#e89f4f"
+		// "onReachBottomDistance": 350
+    },
+    "uniIdRouter" : {},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

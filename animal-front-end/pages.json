@@ -1,0 +1,114 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		// {
+		// 	"path": "pages/community/community",
+		// 	"style": {
+		// 		"navigationBarTitleText": "流浪动物"
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/index/index",
+		// 	"style": {
+		// 		"navigationBarTitleText": "流浪动物"
+		// 	}
+		// },
+	
+	
+		// 主界面
+		{
+		    "path" : "pages/main/main",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		// 社区
+		{
+			"path": "pages/community/community",
+			"style": {
+				
+			}
+		},
+		{
+			"path": "pages/community/community_avtivity_detail",
+			"style": {
+				"navigationBarTitleText": "动态详情"
+			}
+		},
+		// {
+		// 	"path": "pages/community/community_info",
+		// 	"style": {
+				
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/community/community_help",
+		// 	"style": {
+				
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/community/community_activity",
+		// 	"style": {
+				
+		// 	}
+		// },
+		// 登录
+
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录注册",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"
+				}
+			}
+		}
+    
+        ,{
+            "path" : "pages/messsage/messsage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mapmodel/mapmodel",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+
+  
+        ,{
+            "path" : "pages/publish/publish",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "流浪动物",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+	
+}

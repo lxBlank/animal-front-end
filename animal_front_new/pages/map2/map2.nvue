@@ -1,0 +1,274 @@
+<template>
+	<div>
+		<div class="page-body" v-if="index == 0">
+				<map
+					class="mmap"
+					scale=18,
+					:latitude="latitude" 
+					:longitude="longitude" 
+					:markers="covers"
+					@markertap="markertap"  
+					@callouttap='callouttap'>
+				</map>
+		</div>
+		<div class="time-tabnav">
+			<u-tabs 
+				:list="timeTabs" 
+				lineColor="red" 
+				lineWidth="50"
+				@click="tabClick"
+		        :activeStyle="{
+		            color: '#303133',
+		            fontWeight: 'bold',
+		            transform: 'scale(1.05)'
+		        }"
+		        :inactiveStyle="{
+		            color: '#606266',
+		            transform: 'scale(1)'
+		        }"
+		        itemStyle="padding-left: 15px; padding-right: 15px; height: 34px;"		
+				>
+			</u-tabs>
+		</div>
+	</div>
+</template>
+
+<script>
+	import {mapUrl} from '../../utils/base_url.js'
+	import dateUtils from '@/common/utils/dateUtils.js';
+export default {
+	
+	data() {
+		return {
+			// duid
+			duid: '',
+			// 顶部导航数据
+			index: 0,	//索引，哪一页
+
+			// 事件导航数据
+			tabIndex: 0,
+			timeTabs: [
+			{
+				name: '全部',
+			},
+			{
+                name: '最近1小时',
+            }, 
+			{
+                name: '最近6小时',
+            }, 
+			{
+                name: '最近12小时',
+            }, 
+			{
+                name: '最近1天',
+            }, {
+                name: '最近1周',
+            }],
+			// 地图数据
+			id:0, // 使用 marker点击事件 需要填写id
+			title: 'map',
+			latitude: 37.528983,
+			longitude: 122.056908,
+			covers: [
+				{
+				id: 1,
+				latitude: 37.528983,
+				longitude: 122.056909,
+				width:200,   //宽
+                height:200,   //高
+				iconPath: '../../static/alter.png',
+				// title:'我在wwww这里',
+				alpha:0.8,  //透明度
+				callout:{//自定义标记点上方的气泡窗口 点击有效  
+					content:'111',//文本
+				    color:'#ffffff',//文字颜色
+				    fontSize:14,//文本大小
+				    borderRadius:15,//边框圆角
+				    borderWidth:8,
+				    bgColor:'#e51860',//背景颜色
+				    display:'ALWAYS',//常显
+				}
+		
+			}, 
+				// {
+				// 	id: 2,
+				// 	latitude: 37.528983,
+				// 	longitude: 122.056909,
+				// 	iconPath: '../../static/alter.png',
+					
+				// },
+			],
+			
+
+
+		}
+	},
+	methods: {
+
+		formateDate(dateString) {
+			dateString = parseInt(dateString);
+			let date = new Date(dateString);
+			let formatStr = dateUtils.dateFormat('mm月dd日 HH:MM:SS', date);
+			return formatStr;
+		},
+
+		tabClick(e){
+			this.tabIndex = e.index
+		},
+		//地图点击事件
+		markertap(e){	
+		    console.log("===你点击了标记点===",e)
+			var index = e.detail['markerId']
+			this.duid = this.covers[index].duid
+			
+			
+			// this.$set(this.covers[index], "iconPath", "http://172.20.10.5:8080/media/community/Snipaste_2023-03-31_21-06-54.png");
+			// this.$forceUpdate()
+			
+			
+			
+			// if(this.duid != ''){
+			// 	uni.navigateTo({
+			// 		url: `/pages/home/activity_detail?id=${this.duid}`
+			// 	})
+			// }
+			// if(this.duid != ''){
+			// 	uni.navigateTo({
+			// 		url: `/pages/home/activity_detail?id=${this.duid}`
+			// 	})
+			// }
+		},
+		//地图点击事件
+		callouttap(e){
+		    console.log('地图点击事件',e)
+
+
+		}
+
+	},
+	computed:{
+		// markers(){
+		// 	let markers = []
+		// 	markers.concat(this.covers)
+		// 	return markers
+		// }
+	},
+	mounted() {
+		console.log('created')
+		var that = this
+		// 获取数据库数据
+		uni.request({
+			url: mapUrl + that.tabIndex + '/',
+			method:'GET',
+			header: {
+				Authorization: uni.getStorageSync('token'),
+			},
+
+			success: (res) => {
+				 // that.covers = res.data.data;
+				 var datas = res.data.data
+				 var mlen = datas.length
+				 for(var i = 0; i < mlen; i++){
+					 var data = datas[i]
+					 var time = that.formateDate(data['content'])
+					 var curLocation = {
+						id: i,
+						duid: data['duid'],			// 地图标识，只有填写了这个，触发点击事件才有效
+					 	latitude: data['latitude'],
+					 	longitude: data['longitude'],
+					 	width:20,
+					 	height:20,
+					 	iconPath: '../../static/map/cat.png',
+					 	alpha:0.8,  //透明度
+					 	callout:{//自定义标记点上方的气泡窗口 点击有效  
+							content: '1223',//文本
+							padding: 10,
+							fontSize: 15,
+							borderRadius: 30,
+							bgColor: '#ffffff',
+							borderWidth:'8',
+							textAlign: 'center',
+							display: 'ALWAYS'
+					 	}
+					 }
+					 that.covers.push(curLocation)
+					
+				}
+				console.log(that.covers)
+			},
+		})
+		// 获取当前位置
+		uni.getLocation({
+			type: 'gcj02',
+			// 成功
+			success: (res) => {
+				var mlen = that.covers.length
+				let tmpLocation = {
+					latitude: res.latitude,
+					longitude: res.longitude
+				}
+				// console.log(tmpLocation)
+				// 当前位置
+				that.latitude = res.latitude
+				that.longitude = res.longitude
+				var curLocation = {
+					id: mlen-1,
+					duid: '',
+					latitude:res.latitude,
+					longitude:res.longitude,
+					width:30,
+					height:30,
+					iconPath: '../../static/map/myLocation.png',
+					// iconPath: 'http://127.0.0.1:8000/media/community/Snipaste_2023-03-31_21-06-54.png',
+					// title:'我在wwww这里',
+					alpha:0.8,  //透明度
+					callout:{//自定义标记点上方的气泡窗口 点击有效  
+						content:'我的位置',//文本
+					    color:'#ffffff',//文字颜色
+					    fontSize:5,//文本大小
+					    borderRadius:15,//边框圆角
+					    borderWidth:'8',
+					    bgColor:'#e51860',//背景颜色
+					    display:'ALWAYS',//常显
+					}
+				}
+				
+				that.covers.push(curLocation)
+				 // console.log(that.covers)
+				// 存储到缓存
+				uni.setStorage({
+					key: 'location',
+					data: tmpLocation
+				});
+	
+
+			},
+			// 失败
+			fail: (err) => {
+				console.log(err)
+			}
+		})
+	}
+}
+</script>
+<style>
+.time-tabnav{
+	margin-top:2rpx;
+	border-radius: 10px;
+	background-color: aliceblue;
+	width: 96%;
+	margin: 2rpx auto;
+	
+}
+.page-body{
+	margin-top: 5rpx;
+	width: 100%;
+	text-align: center;
+}
+.mmap{
+	width: 96%;
+	height: 1000rpx;
+	border-radius: 20px;
+}
+</style>
