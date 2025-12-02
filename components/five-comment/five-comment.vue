@@ -14,6 +14,7 @@ export default {
 		placeholder: {
 			type: String,
 			default: '请输入评论内容…'
+      // 好的
 		}
 		
 	},
