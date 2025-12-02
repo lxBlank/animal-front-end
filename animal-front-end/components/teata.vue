@@ -15,6 +15,7 @@
 				num: 3
 			};
 		},
+    // 2025
 		props: ['title'],
 		beforeCreate: () => {
 			console.log('实例开始初始化');
