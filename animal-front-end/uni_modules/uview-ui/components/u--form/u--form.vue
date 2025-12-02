@@ -24,6 +24,7 @@
 	import props from '../u-form/props.js'
 	export default {
 		// #ifdef MP-WEIXIN
+    // abc
 		name: 'u-form',
 		// #endif
 		// #ifndef MP-WEIXIN
