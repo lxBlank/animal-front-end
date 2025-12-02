@@ -21,7 +21,7 @@
 	 * @property {String}			inactiveColor	未选中的颜色 （默认 '#c8c9cc' ）
 	 * @property {String | Number}	size			整个组件的尺寸 单位px （默认 18 ）
 	 * @property {String}			placement		布局方式，row-横向，column-纵向 （默认 'row' ）
-	 * @property {String | Number}	labelSize		label的字体大小，px单位  （默认 14 ）
+	 * @property {String | Number}	labelSize		label的字体大小，px单位  （默认 14 ）/
 	 * @property {String}			labelColor		label的字体颜色 （默认 '#303133' ）
 	 * @property {Boolean}			labelDisabled	是否禁止点击文本操作 (默认 false )
 	 * @property {String}			iconColor		图标颜色 （默认 '#ffffff' ）
