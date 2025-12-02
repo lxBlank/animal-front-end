@@ -10,6 +10,7 @@
           <view class="album-name">{{albumInfoData.Name}}</view>
         </view>
         <!-- 用户头部 -->
+<!--        abcd-->
         <view class="flexr-jsb flex-aic plr18r ptb18r">
           <view class="flex" @tap="fnUserInfo(calUser)">
             <user-avatar :src="calUserAvater" :tag="calUser.AuthenticateCode || ''" size="md"></user-avatar>
