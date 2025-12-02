@@ -20,6 +20,7 @@
 				</view>
 				<view class="nav-text">
 					地图
+<!--          a-->
 				</view>
 			</view>
 			<!-- 跳转独立的搜索页 -->
