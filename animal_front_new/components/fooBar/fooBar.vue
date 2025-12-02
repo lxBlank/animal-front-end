@@ -9,6 +9,7 @@
 				</view>
 				<view class="nav-text">
 					首页
+<!--          美丽-->
 				</view>
 			</view>
 			<view class="nav-tab" :class="{'nav-tab-active':home===1}" @click="toIndex(1)">
