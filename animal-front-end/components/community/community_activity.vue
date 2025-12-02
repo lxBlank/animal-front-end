@@ -14,7 +14,7 @@
 						</view>
 						<!-- 浏览数 -->
 						<view class="text-color-assist">
-							<text class="mr-10">浏览</text>
+							<text class="mr-10">浏览数</text>
 							<text class="count">{{ item.reads }}</text>
 						</view>
 					</view>
