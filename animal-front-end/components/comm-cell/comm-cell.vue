@@ -1,6 +1,6 @@
 <template>
   <view class="bgwhite bbs2r">
-    <!-- 头部 -->
+    <!-- 头部信息 -->
     <view class="flexr-jsb flex-aic plr18r ptb18r">
       <!-- 显示信息含时间 -->
       <view class="flex" @tap="$emit('user',infoData.User)">
