@@ -10,7 +10,7 @@
           <navigator class="path" :url="protocolPath" hover-class="navigator-hover">《注册协议》</navigator>
           和
           <navigator class="path" :url="policyPath"  hover-class="navigator-hover">《隐私协议》</navigator>
-          了解详细信息。如您同意，请点击"同意"开始接受我们的服务。
+          了解相关信息。如您同意，请点击"同意"开始接受我们的服务。
         </view>
       </view>
 
