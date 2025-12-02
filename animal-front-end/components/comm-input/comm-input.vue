@@ -27,7 +27,7 @@
 
 <script>
   /**  
-   * 评论输入弹出层组件abcdefgh
+   * 评论输入弹出层组件abcdefghi
    * 通过ref调用open打开
    * @event {Function} send 发送 点击事件  
    */
