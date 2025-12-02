@@ -8,6 +8,7 @@
 					</view>
 				</view>
 				<view class="nav-text">
+<!--          社区-->
 					社区
 				</view>
 			</view>
