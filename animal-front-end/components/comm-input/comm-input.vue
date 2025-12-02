@@ -36,7 +36,7 @@
 
     data() {
       return {
-        // 弹出层显示
+        // 弹出层显示 1
         visible: false,
         // 表情区显示
         openExpres: false,
