@@ -32,6 +32,7 @@
 				</view>
 				<view class="nav-text">
 					发表
+<!--          b?-->
 				</view>
 			</view>
 			<view class="nav-tab" :class="{'nav-tab-active':home===3}" @click="toIndex(3)">
